@@ -3,5 +3,8 @@ env:
   global:
     - ENCRYPTION_LABEL: 90814feb512f
 language: node_js
+before_script:
+    - yarn build
 node_js:
-  - stable
+  - "7"
+

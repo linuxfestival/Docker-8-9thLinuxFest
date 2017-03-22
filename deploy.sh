@@ -16,6 +16,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
 fi
 
 # Save some useful information
+
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
@@ -31,18 +32,19 @@ cd ..
 rm -rf out/**/* || exit 0
 
 # Run our compile script
-doCompile
+#doCompile
 
 # Now let's go have some fun with the cloned repo
 cd out
+cp -R ../Docker101/dist/* .
 git config user.name "Tabrizian"
 git config user.email "Tabrizian@outlook.com"
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if [ -z `git diff --exit-code` ]; then
-    echo "No changes to the output on this push; exiting."
-    exit 0
-fi
+#if [ -z `git diff --exit-code` ]; then
+#    echo "No changes to the output on this push; exiting."
+#    exit 0
+#fi
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.

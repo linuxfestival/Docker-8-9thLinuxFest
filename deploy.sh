@@ -17,7 +17,6 @@ fi
 
 # Save some useful information
 
-pwd
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
@@ -38,7 +37,7 @@ rm -rf out/**/* || exit 0
 
 # Now let's go have some fun with the cloned repo
 cd out
-cp -R $PWD/dist/* .
+cp -R /home/travis/build/LinuxFest/Docker101/dist/* .
 git config user.name "Tabrizian"
 git config user.email "Tabrizian@outlook.com"
 

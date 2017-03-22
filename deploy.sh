@@ -17,6 +17,7 @@ fi
 
 # Save some useful information
 
+pwd
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`

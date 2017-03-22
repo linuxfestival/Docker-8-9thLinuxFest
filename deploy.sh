@@ -20,6 +20,7 @@ fi
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
+PWD=`pwd`
 
 # Clone the existing gh-pages for this repo into out/
 # Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
@@ -36,7 +37,7 @@ rm -rf out/**/* || exit 0
 
 # Now let's go have some fun with the cloned repo
 cd out
-cp -R ../Docker101/dist/* .
+cp -R $PWD/dist/* .
 git config user.name "Tabrizian"
 git config user.email "Tabrizian@outlook.com"
 

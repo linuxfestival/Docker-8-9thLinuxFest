@@ -8,4 +8,4 @@ COPY . .
 RUN gcc main.c
 
 
-ENTRYPOINT ["./a.out"]
+CMD ["./a.out"]
